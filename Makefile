@@ -1,9 +1,9 @@
-CC		= mpic++
-TARGET	= mpi_admm
-CFLAGS	= -std=c++11
+CC			= mpic++
+TARGET		= mpi_admm
+CFLAGS		= -std=c++11
 DLIB_FLAGS	= -lpthread -lX11
-DLIB	= $(HOME)/opt/dlib
-SOURCE	= $(DLIB)/dlib/all/source.cpp
+DLIB		= $(HOME)/opt/dlib
+SOURCE		= $(DLIB)/dlib/all/source.cpp
 
 all:	$(TARGET)
 
