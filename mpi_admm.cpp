@@ -59,7 +59,7 @@ main(int argc, char *argv[])
             beta_iter_obj_func_gradient_parametrized df(z, u, X, y, N, rho);
 
             find_min(lbfgs_search_strategy(10),
-                     objective_delta_stop_strategy(1e-7).be_verbose(),
+                     objective_delta_stop_strategy(1e-7),
                      f, df, beta, -1);
 
             /* z update -- send beta to rank 0, then receive z from rank 0 */
