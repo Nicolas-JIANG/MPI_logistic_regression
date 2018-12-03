@@ -50,5 +50,17 @@ the vector in "bigM_true_beta.txt" as the original coefficients. To run the
 program on this data, simply move it into your local folder, rename the files
 as "data_i.txt" for i = 1,2,3,4, and run it with 5 processors. If you only
 have four processors, you can do mpirun -n 4, but chunk 4 won't be processed.
+About the "true beta": the original motivation behind this project was to look at
+the effectiveness of the ADMM L1-regularized logistic regression at performing
+variable selection, which is why beta has such a simple form (binary, with few
+non-zero entries). As can be seen from the example output obtained by running
+on the test data, it performs variable selection tolerably well.
+
+GOING FORWARD
+
+Though this program was for a class project, I plan to continue to tinker with
+it. I also plan to test it on larger-scale, more complicated datasets and make
+corresponding improvements. If you have any suggestions or can think of
+alterations I could make that would render it useful to you, please let me know.
 
 Wes Suttle at Stony Brook University, fall 2018.
