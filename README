@@ -36,7 +36,7 @@ local folder, you're ready to go. To execute, do:
 
 mpirun -n k mpi_admm N/(k-1) p iters rho lambda
 
-where k in the number of processing elements you're using, N and p are the
+where k is the number of processing elements you're using, N and p are the
 dimensions of X, iters is the number of iterations you'd like to perform,
 rho is the penalty parameter of the augmented Lagrangian, and lambda is the
 L1-regularization penalty term. Tuning of rho and lambda is definitely
