@@ -1,0 +1,46 @@
+WHAT IS THIS?
+
+This is a parallel implementation of L1-regularized logistic regression using
+the alternating direction method of multipliers scheme. It follows the
+formulation given in Boyd et al. (2010), with a slight modification to
+incorporate intercepts.
+
+COMPILATION
+
+The program relies on OpenMPI (mpi.h, mpic++, mpirun) and the dlib C++ library.
+dlib (http://dlib.net) must be installed to compile using the Makefile
+provided. Once dlib is downloaded, simply set DLIB equal to your dlib install
+directory, then make.
+
+INPUT DATA
+
+The data you wish to fit MUST be standardized. If not, convergence is not
+assured. Given N by p data matrix X and target column vector y, let
+M = [ 1, X, y], where the first element is a column of all ones. Let
+"data.txt" be a space- or tab-delimited text file containing M.
+
+Given k processing elements, the program expects at least k-1 separate
+data files, called "data_1.txt", "data_2.txt", ..., "data_{k-1}.txt",
+where all files are of precisely the same dimensions. If your original data
+is stored in "data.txt", then "data_1.txt", ..., "data_{k-1}.txt" are simply
+k-1 chunks of the original matrix M, each of dimension N/(k-1) by p+2.
+
+IMPORTANT: the dimensions of the matrices contained in the input files MUST
+be the same across all files. Also, if there are more than k-1 input files,
+only files 1 through k-1 will be processed.
+
+USAGE
+
+Once you've compiled the program and your data files are located in the
+local folder, you're ready to go. To execute, do:
+
+mpirun -n k N p iters rho lambda
+
+where k in the number of processing elements you're using, N and p are the
+dimensions of X, iters is the number of iterations you'd like to perform,
+rho is the penalty parameter of the augmented Lagrangian, and lambda is the
+L1-regularization penalty term. Tuning of rho and lambda is definitely
+required! In general, expect to use small values (on the order of 0.01) when
+fitting large data.
+
+Wes Suttle at Stony Brook University, fall 2018.
