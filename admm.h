@@ -33,7 +33,7 @@ column_vector prob(const column_vector& beta,
 
     for (int i=0; i<N; i++) {
         prod = rowm(X,i)*beta;
-        if (isnan(exp(-1*prod))) {
+        if (std::isnan(exp(-1*prod))) {
             probs(i) = 1;
         }
         else {
