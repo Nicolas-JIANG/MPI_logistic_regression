@@ -34,13 +34,13 @@ USAGE
 Once you've compiled the program and your data files are located in the
 local folder, you're ready to go. To execute, do:
 
-mpirun -n k N p iters rho lambda
+mpirun -n k mpi_admm N/(k-1) p iters rho lambda
 
 where k in the number of processing elements you're using, N and p are the
 dimensions of X, iters is the number of iterations you'd like to perform,
 rho is the penalty parameter of the augmented Lagrangian, and lambda is the
 L1-regularization penalty term. Tuning of rho and lambda is definitely
 required! In general, expect to use small values (on the order of 0.01) when
-fitting large data.
+fitting data with hundreds or more variables.
 
 Wes Suttle at Stony Brook University, fall 2018.
