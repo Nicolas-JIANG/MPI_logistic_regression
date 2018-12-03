@@ -43,4 +43,12 @@ L1-regularization penalty term. Tuning of rho and lambda is definitely
 required! In general, expect to use small values (on the order of 0.01) when
 fitting data with hundreds or more variables.
 
+TEST DATA
+
+In the "bigdata" directory I've included some test data synthesized using
+the vector in "bigM_true_beta.txt" as the original coefficients. To run the
+program on this data, simply move it into your local folder, rename the files
+as "data_i.txt" for i = 1,2,3,4, and run it with 5 processors. If you only
+have four processors, you can do mpirun -n 4, but chunk 4 won't be processed.
+
 Wes Suttle at Stony Brook University, fall 2018.
